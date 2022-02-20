@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron text-center">
+        <h1>Hi {{user.firstName}}!</h1>
+        <h1 class="display-3">Cảm ơn quý khách đã đặt hàng!</h1>
+        <p class="lead"><strong>Vui lòng kiểm tra email</strong></p>
+        <hr>
+        <p>
+
+        <p>Mã đơn hàng : <strong>{{orderId}}</strong></p>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Hình ảnh</th>
+          <th>Tên sản phẩm</th>
+          <th>Giá tiền</th>
+          <th>Số lượng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of products">
+          <td>
+            <img [src]="p.image" alt="{{p.title}}" class="img-thumbnail" width="100px">
+          </td>
+          <td>{{p.title}}</td>
+          <td>{{p.price | currency:'VND'}}</td>
+          <td>{{p.quantityOrdered}}</td>
+        </tr>
+
+        <tr class="border-0">
+          <td style="border: none;"></td>
+          <td></td>
+          <td>Tổng cộng</td>
+          <td>{{cartTotal | currency:'VND'}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,188 @@
+<ngx-spinner
+  bdColor= "rgba(151,149,149,0.4)"
+  size="large"
+  color="orange"
+  type="ball-clip-rotate-pulse"
+  fullScreen="true"
+>
+  <p style="font-size: 20px; color: black">Booking Order...</p>
+</ngx-spinner>
+
+<div class="section" *ngIf="cartData.total > 0">
+<!-- container -->
+<div class="container">
+  <!-- row -->
+  <div class="row">
+
+    <div class="col-md-7">
+      <!-- Billing Details -->
+      <div class="billing-details">
+        <div class="section-title">
+          <h3 class="title">Địa chỉ thanh toán</h3>
+        </div>
+        <div class="form-group">
+          <input class="input" type="text" name="first-name" placeholder="Tên">
+        </div>
+        <div class="form-group">
+          <input class="input" type="text" name="last-name" placeholder="Họ">
+        </div>
+        <div class="form-group">
+          <input class="input" type="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input class="input" type="text" name="address" placeholder="Địa chỉ">
+        </div>
+        <div class="form-group">
+          <input class="input" type="text" name="city" placeholder="Thành phố">
+        </div>
+        <div class="form-group">
+          <input class="input" type="text" name="country" placeholder="Đất nước">
+        </div>
+        <div class="form-group">
+          <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+        </div>
+        <div class="form-group">
+          <input class="input" type="tel" name="tel" placeholder="Số điện thoại">
+        </div>
+        <div class="form-group">
+          <div class="input-checkbox">
+            <input type="checkbox" id="create-account">
+            <label for="create-account">
+              <span></span>
+              Bạn đã tạo tài khoản?
+            </label>
+            <div class="caption">
+              <p>Vui lòng điền mật khẩu của tài khoản để xác nhận sản phẩm thuộc về tài khoản của bạn đã đặt hàng.</p>
+              <input class="input" type="password" name="password" placeholder="Nhập mật khẩu">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Billing Details -->
+
+      <!-- Shiping Details -->
+      <div class="shiping-details">
+        <div class="section-title">
+          <h3 class="title">Địa chỉ nhận hàng</h3>
+        </div>
+        <div class="input-checkbox">
+          <input type="checkbox" id="shiping-address">
+          <label for="shiping-address">
+            <span></span>
+            Gửi đến một địa chỉ khác?
+          </label>
+          <div class="caption">
+            <div class="form-group">
+              <input class="input" type="text" name="first-name" placeholder="Tên">
+            </div>
+            <div class="form-group">
+              <input class="input" type="text" name="last-name" placeholder="Họ">
+            </div>
+            <div class="form-group">
+              <input class="input" type="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="input" type="text" name="address" placeholder="Địa chỉ">
+            </div>
+            <div class="form-group">
+              <input class="input" type="text" name="city" placeholder="Thành phố">
+            </div>
+            <div class="form-group">
+              <input class="input" type="text" name="country" placeholder="Đất nước">
+            </div>
+            <div class="form-group">
+              <input class="input" type="text" name="zip-code" placeholder="mã ZIP Code">
+            </div>
+            <div class="form-group">
+              <input class="input" type="tel" name="tel" placeholder="Số điện thoại">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Shiping Details -->
+
+      <!-- Order notes -->
+      <div class="order-notes">
+        <textarea class="input" placeholder="Nội dung đặt hàng"></textarea>
+      </div>
+      <!-- /Order notes -->
+    </div>
+
+    <!-- Order Details -->
+    <div class="col-md-5 order-details">
+      <div class="section-title text-center">
+        <h3 class="title">Đơn hàng của bạn</h3>
+      </div>
+      <div class="order-summary">
+        <div class="order-col">
+          <div><strong>Sản phẩm</strong></div>
+          <div><strong>Tổng tiền</strong></div>
+        </div>
+        <div class="order-products">
+          <div class="order-col" *ngFor="let c of cartData.data;">
+            <div>{{c.numInCart}}x {{c.product.name}}</div>
+            <div>{{(c.product.price*c.numInCart) | currency:'VND'}}</div>
+          </div>
+        </div>
+        <div class="order-col">
+          <div>Giao hàng</div>
+          <div><strong>Miễn phí</strong></div>
+        </div>
+        <div class="order-col dropdown-divider">
+          <div><strong>Tổng cộng</strong></div>
+          <div><strong class="order-total">{{cartTotal | currency:'VND'}}</strong></div>
+        </div>
+      </div>
+      <div class="payment-method">
+        <div class="input-radio">
+          <input type="radio" name="payment" id="payment-1">
+          <label for="payment-1">
+            <span></span>
+            Thanh toán bằng phương thức chuyển khoản
+          </label>
+          <div class="caption">
+            <p>Vui lòng gửi Tổng số tiền vào tài khoản ngân hàng của chúng tôi: ngân hàng Agribank,
+              Số tài khoản:4602205158517 với nội dung là: tên tài khoản của bạn và tên sản phẩm bạn đã đặt.</p>
+          </div>
+        </div>
+        <div class="input-radio">
+          <input type="radio" name="payment" id="payment-2">
+          <label for="payment-2">
+            <span></span>
+            Thanh toán khi nhận hàng
+          </label>
+          <div class="caption">
+          </div>
+        </div>
+        <div class="input-radio">
+          <input type="radio" name="payment" id="payment-3">
+          <label for="payment-3">
+            <span></span>
+            Thanh toán bằng chuyển tiền PayPal
+          </label>
+          <div class="caption">
+            <p>Vui lòng gửi Tổng số tiền vào tài khoản PayPal: plvinhkhangg@gmail.com với nội dung là: tên tài khoản của bạn và tên sản phẩm bạn đã đặt.</p>
+          </div>
+        </div>
+      </div>
+      <div class="input-checkbox">
+        <input type="checkbox" id="terms">
+        <label for="terms">
+          <span></span>
+          Tôi đã đọc kỹ nội dung<a href="#"> điều khoản và điều kiện</a>
+        </label>
+      </div>
+      <button type="submit" class="btn-outline-danger btn-sm my-2 btn-block" [disabled]="cartTotal <= 0 " (click)="onCheckout()">Đặt hàng</button>
+    </div>
+    <!-- /Order Details -->
+  </div>
+  <!-- /row -->
+</div>
+<!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<div class="text-center my-5" *ngIf="cartData.total <= 0">
+  <h4>Giỏ hàng của bạn đang trống</h4>
+  <button class="btn btn-primary btn-lg mt-3" routerLink="/">Tiếp tục mua sắm</button>
+</div>

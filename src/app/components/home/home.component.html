@@ -1,0 +1,255 @@
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- shop -->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="./../../../assets/img/dasani925805858961.png" alt="" height="250" width="250">
+          </div>
+          <div class="shop-body">
+            <h3><br>Sản phẩm</h3>
+            <a href="" class="cta-btn">Mua Ngay <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+
+      <!-- shop -->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="./../../../assets/img/nuoc-vinh-hao.jpg" alt="">
+          </div>
+          <div class="shop-body">
+            <h3><br>Sản phẩm</h3>
+            <a href="" class="cta-btn">Mua Ngay <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+
+      <!-- shop -->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="./../../../assets/img/satori953396198729.jpg" alt="" height="250" width="250">
+          </div>
+          <div class="shop-body">
+            <h3><br>Sản phẩm</h3>
+            <a href="" class="cta-btn">Mua Ngay <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- /shop -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h3 class="title">Sản phẩm mới</h3>
+        </div>
+      </div>
+      <!-- /section title -->
+
+      <!-- Products tab & slick -->
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4 col-sm-6" *ngFor="let p of products">
+            <div class="card my-2">
+              <img [src]="p.image" alt="{{p.name}}" width="200px" class="card-img-top" (click)="selectProduct(p.id)" style="cursor:pointer;">
+              <div class="card-header">
+                <div class="card-title">
+                  <p>{{p.name | titlecase}}</p>
+                </div>
+              </div>
+              <div class="card-body">
+                <h6>{{p.description.substr(0, 40)}} ....</h6>
+                <p class="lead">{{p.price | currency:'VND'}}</p>
+              </div>
+
+              <div class="row d-flex justify-content-center border-primary my-3">
+                <div class="col-md-6 ">
+                  <button class="btn btn-outline-primary btn-sm btn-block"
+                          [class.disabled]="p.quantity < 1"
+                          [class.btn-outline-danger]="p.quantity < 1"
+                          (click)="AddProduct(p.id)" [disabled]="p.quantity < 1">
+                    {{ p.quantity < 1 ? "Hết hàng" : "Thêm vào Giỏ hàng"}}
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+<!-- /container -->
+<!-- NEWSLETTER -->
+<div id="newsletter" class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="newsletter">
+          <p>Đăng nhập để nhận thông báo về các <strong>khuyến mãi</strong></p>
+          <form>
+            <input class="input" type="email" placeholder="Enter Your Email">
+            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+          </form>
+          <ul class="newsletter-follow">
+            <li>
+              <a href="https://www.facebook.com/pl.vkhang/"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/VinhKha33619704"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-pinterest"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+
+</div>
+<!-- /NEWSLETTER -->
+
+<script id="lazy-load-icons">
+  /* Lazy load icons css file */
+  var fl_icons = document.createElement('link');
+  fl_icons.rel = 'stylesheet';
+  fl_icons.href = 'https://shoplamdep.haiphongweb.com/wp-content/themes/flatsome/assets/css/fl-icons.css';
+  fl_icons.type = 'text/css';
+  var fl_icons_insert = document.getElementsByTagName('link')[0];
+  fl_icons_insert.parentNode.insertBefore(fl_icons, fl_icons_insert);
+</script>
+<style>
+.bottom-contact{display:none}
+@media  (max-width: 767px) {	
+.bottom-contact{display: block;
+  position: fixed;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  z-index: 99;
+  box-shadow: 2px 1px 9px  #0000008a;
+  border-top: 1px solid #eaeaea;}
+.bottom-contact ul li{width: 25%; margin-bottom:0; 
+  float: left;
+  list-style: none;
+  text-align: center; font-size:13.5px;}
+.bottom-contact ul li span{color:black}
+.bottom-contact ul li img{    width: 35px;
+  margin-top: 3px;
+  margin-bottom: 0px;}
+
+.float-contact{display:none}
+}
+
+.float-contact {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 99999;
+}
+.chat-zalo {
+  background: #8eb22b;
+  border-radius: 20px;
+  padding: 0px 18px;
+  color: white;
+  display: block;
+  margin-bottom: 6px;
+}
+.chat-face {
+  background: #125c9e;
+  border-radius: 20px;
+  padding: 0px 18px;
+  color: white;
+  display: block;
+  margin-bottom: 6px;
+}
+.float-contact .hotline {
+  background: #d11a59 !important;
+  border-radius: 20px;
+  padding: 0 18px;
+  color: white;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.chat-zalo a, .chat-face a, .hotline a {
+  font-size: 15px;
+  color: white;
+  font-weight: normal;
+  text-transform: none;
+  line-height: 0;
+}
+
+</style>
+<div class="bottom-contact">
+<ul>
+<li>
+<a id="goidien" href="tel:0986.989.626">
+<img src="http://topweb.com.vn/wp-content/uploads/2019/06/icon-phone2.png">
+<br>
+<span>Gọi điện</span>
+</a>
+</li>
+<li>
+<a id="nhantin" href="sms:0986.989.626">
+<img src="http://topweb.com.vn/wp-content/uploads/2019/06/icon-sms2.png">
+<br>
+<span>Nhắn tin</span>
+</a>
+</li>
+<li>
+<a id="chatzalo" href="http://zalo.me/0986.989.626">
+<img src="http://topweb.com.vn/wp-content/uploads/2019/06/icon-zalo2.png">
+<br>
+<span>Chat zalo</span>
+</a>
+</li>
+<li>
+<a id="chatfb" href="https://www.messenger.com/t/topweb.com.vn">
+<img src="http://topweb.com.vn/wp-content/uploads/2019/06/icon-mesenger2.png">
+<br>
+<span>Chat Fb</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="float-contact">
+<button class="chat-zalo"><a href="http://zalo.me">Chat Zalo</a></button>
+<button class="chat-face"><a href="https://www.facebook.com/pl.vkhang">Chat Facebook</a></button>
+<button class="hotline"><a href="tel:0986.989.626">Hotline: 0986.989.626</a></button>
+</div> 
